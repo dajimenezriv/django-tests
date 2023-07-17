@@ -13,6 +13,10 @@
   "activationEvents": [
     "onLanguage:python"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dajimenezriv/django-tests"
+  },
   "icon": "icon.png",
   "main": "./out/extension.js",
   "contributes": {
