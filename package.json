@@ -9,13 +9,50 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "languages": [
       {
-        "command": "docker-tests.helloWorld",
-        "title": "Hello World"
+        "id": "python",
+        "extensions": [
+          ".py"
+        ]
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "python",
+        "label": "Python",
+        "languages": [
+          "python"
+        ],
+        "configurationSnippets": [
+          {
+            "label": "Launch",
+            "description": "Launch a Python file",
+            "body": {
+              "name": "Python: Launch",
+              "type": "python",
+              "request": "launch",
+              "program": "${file}",
+              "console": "integratedTerminal"
+            }
+          },
+          {
+            "label": "Attach",
+            "description": "Attach to a running Python process",
+            "body": {
+              "name": "Python: Attach",
+              "type": "python",
+              "request": "attach",
+              "port": 5678,
+              "host": "localhost"
+            }
+          }
+        ]
       }
     ]
   },
