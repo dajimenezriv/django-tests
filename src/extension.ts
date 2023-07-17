@@ -32,7 +32,8 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.languages.registerCodeLensProvider('python', testCodeLensProvider),
         vscode.commands.registerCommand('extension.runTest', (className: string, testName: string) => {
-            const command = `docker compose exec wsgi_backend python manage.py test naranjas_daniel.tests.${className}.${testName}`;
+            const conf = vscode.workspace.getConfiguration();
+            const command = `${conf.get('docker-tests.command')} ${conf.get('docker-tests.app')}.tests.${className}.${testName}`;
             vscode.window.terminals.forEach(terminal => {
                 terminal.sendText(command);
                 terminal.show();

@@ -54,7 +54,22 @@
           }
         ]
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Docker Tests",
+      "properties": {
+          "docker-tests.command": {
+              "type": "string",
+              "default": "docker compose exec wsgi_backend python manage.py test",
+              "description": "The command to execute the tests."
+          },
+          "docker-tests.app": {
+              "type": "string",
+              "default": "naranjas_daniel",
+              "description": "The name of the app where the tests reside."
+          }
+      }
+  }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
