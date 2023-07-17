@@ -1,6 +1,7 @@
 {
-  "name": "docker-tests",
-  "displayName": "Docker Tests",
+  "name": "django-tests",
+  "displayName": "Django Tests",
+  "publisher": "dajimenezriv",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +13,7 @@
   "activationEvents": [
     "onLanguage:python"
   ],
+  "icon": "icon.png",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -64,12 +66,12 @@
     "configuration": {
       "title": "Docker Tests",
       "properties": {
-        "docker-tests.command": {
+        "django-tests.command": {
           "type": "string",
           "default": "docker compose exec wsgi_backend python manage.py test",
           "description": "The command to execute the tests."
         },
-        "docker-tests.app": {
+        "django-tests.app": {
           "type": "string",
           "default": "naranjas_daniel",
           "description": "The name of the app where the tests reside."

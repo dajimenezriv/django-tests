@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerCodeLensProvider("python", testCodeLensProvider),
     vscode.commands.registerCommand("extension.runAllTests", () => {
       const conf = vscode.workspace.getConfiguration();
-      const command = conf.get("docker-tests.command") as string;
+      const command = conf.get("django-tests.command") as string;
       vscode.window.terminals.forEach((terminal) => {
         terminal.sendText(command);
         terminal.show();
@@ -59,8 +59,8 @@ export function activate(context: vscode.ExtensionContext) {
       "extension.runTests",
       (className: string) => {
         const conf = vscode.workspace.getConfiguration();
-        const command = `${conf.get("docker-tests.command")} ${conf.get(
-          "docker-tests.app"
+        const command = `${conf.get("django-tests.command")} ${conf.get(
+          "django-tests.app"
         )}.tests.${className}`;
         vscode.window.terminals.forEach((terminal) => {
           terminal.sendText(command);
@@ -72,8 +72,8 @@ export function activate(context: vscode.ExtensionContext) {
       "extension.runTest",
       (className: string, testName: string) => {
         const conf = vscode.workspace.getConfiguration();
-        const command = `${conf.get("docker-tests.command")} ${conf.get(
-          "docker-tests.app"
+        const command = `${conf.get("django-tests.command")} ${conf.get(
+          "django-tests.app"
         )}.tests.${className}.${testName}`;
         vscode.window.terminals.forEach((terminal) => {
           terminal.sendText(command);
