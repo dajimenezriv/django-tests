@@ -47,6 +47,14 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.languages.registerCodeLensProvider("python", testCodeLensProvider),
+    vscode.commands.registerCommand("extension.runAllTests", () => {
+      const conf = vscode.workspace.getConfiguration();
+      const command = conf.get("docker-tests.command") as string;
+      vscode.window.terminals.forEach((terminal) => {
+        terminal.sendText(command);
+        terminal.show();
+      });
+    }),
     vscode.commands.registerCommand(
       "extension.runTests",
       (className: string) => {
