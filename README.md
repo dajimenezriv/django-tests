@@ -7,8 +7,8 @@ vsce login dajimenezriv
 vsce publish
 ```
 
+settings.json
 ```json
-// settings.json
 {
   "django-tests.app": "naranjas_daniel",
   "django-tests.command": "docker compose exec wsgi_backend python manage.py test"
